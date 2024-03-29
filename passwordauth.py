@@ -3,24 +3,26 @@ import string
 import secrets
 import random
 
+score = 3
+
 def validate(password):
-    score = 3
+    global score
     while True:
         if len(password) < 8 or len(password) > 15:
             print("Make sure your password is at lest 8 letters")
             score -=1
-            break
+            return False
         elif re.search('[0-9]',password) is None:
             print("Make sure your password has a number in it")
             score -=1
-            break
+            return False
         elif re.search('[A-Z]',password) is None: 
             print("Make sure your password has a capital letter in it")
             score -=1
-            break
+            return False
         else:
             print("Your password seems fine")
-            break
+            return True
 
 
 
@@ -47,4 +49,6 @@ def main():
 # Driver Code        
 if __name__ == '__main__':
     main()
+
+
 
